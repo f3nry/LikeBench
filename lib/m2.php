@@ -91,10 +91,6 @@ class M2 extends Base {
 		$list=$this->db->listCollections();
 		foreach ($list as &$coll)
 			$coll=$coll->getName();
-		if ($query['method']!='save' && !in_array($this->collection,$list)) {
-			trigger_error(sprintf(self::TEXT_M2Collection,$this->collection));
-			return;
-		}
 		if (isset($query['map'])) {
 			// Create temporary collection
 			$ref=$this->db->selectCollection($hash);
