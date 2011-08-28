@@ -2,6 +2,8 @@
 
 require __DIR__ . '/app/app.php';
 
+date_default_timezone_set("America/Chicago");
+
 App::set('CACHE', FALSE);
 App::set('DEBUG', 1);
 
