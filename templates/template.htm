@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LikeBench</title>
+    
+    <link type="text/css" rel="stylesheet" href="/css/blueprint/screen.css" />
+    <link type="text/css" rel="stylesheet" href="/css/style.css" />
+    
+    <script type="text/javascript" src="/js/jquery-1.6.2.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="left">
+	
+      </div>
+      <div class="left wider">
+	<a href="http://{{@host}}">
+	  <img src="/images/likebench-logo.png" alt="LikeBench" width="400" />
+	</a>
+      </div>
+      <div class="right">
+	
+      </div>
+    </header>
+    <div class="body">
+      <div class="content">
+	{{@content}}
+      </div>
+      <div class="sidebar">
+	<div class="login_box facebook_login">
+	  <p>Welcome to the LikeBench! <br/> Please login to create new likes.</p>
+	  <form action="/login">
+	    <label>email</label>
+	    <input type="text" name="email" class="title" />
+	    <label>password</label>
+	    <input type="password" name="password" class="title" />
+	  </form>
+	  <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js"></script><fb:login-button show-faces="true" width="200" max-rows="1">Login with Facebook</fb:login-button>
+	</div>
+      </div>
+    </div>
+    <div class="footer">
+      <ul class="footer_menu">
+	<li>Copyright &copy; 2011 |&nbsp;</li>
+	<li><a href="http://teamaptitude.com" target="_blank">TeamAptitude</a> |&nbsp;</li>
+	<li>A Magan and Paul Production</li>
+      </ul>
+    </div>
+    
+    <script type="text/javascript">
+      <!--
+      window.fbAsyncInit = function() {
+	FB.init({
+	  appId: '208264955898181',
+	  status: true,
+	  cookie: true,
+	  xfbml: true
+	});
+	
+	FB.Event.subscribe('edge.create', function(href, widget) {
+	  $.post('/events/like', { href: href });
+	});
+      }
+      -->
+    </script>
+  </body>
+</html> 

@@ -1,0 +1,81 @@
+body {
+  font-size: 0.9em;
+}
+
+header {
+  height: 150px;
+  font-size: 3em;
+  border-bottom: #dddddd 1px solid;
+}
+
+header div {
+  height: 150px;
+}
+
+header div.left {
+  width: 30%;
+}
+
+header div.wider {
+  width: 40%;
+  text-align: center;
+}
+
+header div.right {
+  width: 29%;
+}
+
+div.body {
+  min-height: 600px;
+  border-bottom: #dddddd 1px solid;
+}
+
+div.body div.content {
+  float: left;
+  max-width: 60%;
+  padding: 20px;
+}
+
+div.content div.like p {
+  margin-bottom:0.50em;
+  margin-top: 1.0em;
+}
+
+div.body div.sidebar {
+  width: 30%;
+  float: right;
+  border-left: #dddddd 1px solid;
+  padding-top: 20px;
+  color: #5f5f5f;
+}
+
+div.sidebar .login_box {
+  margin-left: 8px;
+  margin-right: auto;
+}
+
+div.login_box label {
+  display: block;
+  font-size: 1.1em;
+}
+
+div.login_box input {
+  width: 200px;
+}
+
+div.footer {
+  width: 100%;
+  text-align: center;
+}
+
+div.footer ul.footer_menu {
+  list-style-type: none;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+div.footer ul.footer_menu li {
+  float: left;
+}

@@ -1,0 +1,10 @@
+<?php foreach ((($_likes=F3::get('likes'))?:array()) as $_like): ?>
+  <div class="like">
+    <p><a href="/likes/<?php echo $_like->_id; ?>"><?php echo $_like->text; ?></a></p>
+    <span class="like_buttons">
+      <fb:like href="<?php echo $_like->getUrl(); ?>" layout="button_count"></fb:like>
+      <a href="http://twitter.com/share" data-count="horizontal" data-url="<?php echo $_like->getUrl(); ?>" data-text="<?php echo $_like->text; ?>" class="twitter-share-button">Tweet</a>
+    </span>
+  </div>
+<?php endforeach; ?>
+<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>

@@ -1,0 +1,10 @@
+<F3:repeat group="{{@likes}}" value="{{@like}}">
+  <div class="like">
+    <p><a href="/likes/{{@like->_id}}">{{@like->text}}</a></p>
+    <span class="like_buttons">
+      <fb:like href="{{@like->getUrl()}}" layout="button_count"></fb:like>
+      <a href="http://twitter.com/share" data-count="horizontal" data-url="{{@like->getUrl()}}" data-text="{{@like->text}}" class="twitter-share-button">Tweet</a>
+    </span>
+  </div>
+</F3:repeat>
+<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
