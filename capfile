@@ -1,0 +1,21 @@
+set :web_directory, "/var/www/likebench"
+set :branch, "origin/master"
+
+role :server, "50.22.93.76"
+
+ssh_options[:username] = "paul"
+
+namespace :deploy do
+    desc "Updates the code on the server"
+    task :default, :roles => :server, :except => { :no_release => true } do
+        run [ "cd #{web_directory}",
+              "git fetch origin",
+              "git reset --hard #{branch}" ].join("; ")
+    end
+
+    desc "Rollback a single commit on the server"
+    task :rollback, :roles => :server, :except => { :no_release => true } do
+        set :branch, "HEAD^",
+        default
+    end
+end
