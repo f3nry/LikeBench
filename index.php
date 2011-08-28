@@ -13,10 +13,11 @@ App::set('DB', new MongoDb(new Mongo(), 'likebench'));
 App::set('host', $_SERVER['HTTP_HOST']);
 
 User::init();
+User::fbauth();
 
-App::route('GET /', function() {
-  var_dump(User::fbauth());
-  
+App::set('logged_in', (boolean) $_SESSION['_id']);
+
+App::route('GET /', function() { 
   $likes = new Like();
   
   App::set('likes', $likes->find());

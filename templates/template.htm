@@ -27,16 +27,21 @@
 	{{@content}}
       </div>
       <div class="sidebar">
-	<div class="login_box facebook_login">
-	  <p>Welcome to the LikeBench! <br/> Please login to create new likes.</p>
-	  <form action="/login">
-	    <label>email</label>
-	    <input type="text" name="email" class="title" />
-	    <label>password</label>
-	    <input type="password" name="password" class="title" />
-	  </form>
-	  <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js"></script><fb:login-button show-faces="true" width="200" max-rows="1">Login with Facebook</fb:login-button>
-	</div>
+	<F3:check if="{{@logged_in}}">
+	  <F3:false>
+	    <div class="login_box facebook_login">
+	      <p>Welcome to the LikeBench! <br/> Please login to create new likes.</p>
+	      <!--
+	      <form action="/login">
+		<label>email</label>
+		<input type="text" name="email" class="title" />
+		<label>password</label>
+		<input type="password" name="password" class="title" />
+	      </form>-->
+	      <fb:login-button show-faces="true" width="200" max-rows="1" perms="email">Login with Facebook</fb:login-button>
+	    </div>
+	  </F3:false>
+	</F3:check>
       </div>
     </div>
     <div class="footer">
@@ -46,7 +51,7 @@
 	<li>A Magan and Paul Production</li>
       </ul>
     </div>
-    
+    <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js"></script>
     <script type="text/javascript">
       <!--
       window.fbAsyncInit = function() {
