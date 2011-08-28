@@ -6,14 +6,17 @@ date_default_timezone_set("America/Chicago");
 
 App::set('CACHE', FALSE);
 App::set('DEBUG', 1);
-
 App::set('AUTOLOAD', 'app/');
 
 App::set('DB', new MongoDb(new Mongo(), 'likebench'));
 
 App::set('host', $_SERVER['HTTP_HOST']);
 
+User::init();
+
 App::route('GET /', function() {
+  var_dump(User::fbauth());
+  
   $likes = new Like();
   
   App::set('likes', $likes->find());
