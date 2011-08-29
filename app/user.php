@@ -157,7 +157,9 @@ class User extends M2 {
       }
     }
 
-    $_SESSION = array_merge($_SESSION, $user_data);
+    if(is_array($user_data)) {
+      $_SESSION = array_merge($_SESSION, $user_data);
+    }
 
     if (isset($_SESSION['access_token']) && !empty($_SESSION['access_token'])) {
       if (!isset($_SESSION['_id']) && empty($_SESSION['_id'])) {
