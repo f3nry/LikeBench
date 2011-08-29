@@ -6,6 +6,28 @@
  * @author paul
  */
 class Like extends M2 {
+  protected $count = null;  
+  
+  public function count() {    
+    if($this->count == null) {
+      $this->count = $this->db->{$this->collection}->count();
+    }
+    
+    return $this->count;
+  }
+  
+  public function getPages($page) {
+    $total_pages = ceil($this->count() / 10);
+    
+    $pages = array();
+    
+    for($i = 1; $i <= $total_pages; $i++) {
+      $pages[] = $i;
+    }
+    
+    return $pages;
+  }
+  
   public function __construct($_id = "") {
     parent::__construct('likes');
     
@@ -15,12 +37,10 @@ class Like extends M2 {
   }
   
   public function beforeSave() {
-    if($this->dry()) {
-      $this->ip_address = $_SERVER['REMOTE_ADDR'];
-      $this->referer = $_SERVER['HTTP_REFERER'];
-      $this->user_agent = $_SERVER['HTTP_USER_AGENT'];
-      $this->created_at = time();
-    }
+    $this->ip_address = $_SERVER['REMOTE_ADDR'];
+    $this->referer = $_SERVER['HTTP_REFERER'];
+    $this->user_agent = $_SERVER['HTTP_USER_AGENT'];
+    $this->created_at = time();
   }
   
   public function getUrl() {

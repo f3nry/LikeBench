@@ -1,15 +1,21 @@
 body {
   font-size: 0.9em;
+  background-color: #808080;
+}
+
+div.content input.text {
+  height: 30px;
+  width: 400px;
 }
 
 header {
-  height: 150px;
-  font-size: 3em;
+  height: 180px;
   border-bottom: #dddddd 1px solid;
+  background-color: white;
 }
 
 header div {
-  height: 150px;
+  height: 180px;
 }
 
 header div.left {
@@ -33,12 +39,19 @@ div.body {
 div.body div.content {
   float: left;
   max-width: 60%;
-  padding: 20px;
+  padding: 40px 0px 0px 60px;
 }
 
 div.content div.like p {
   margin-bottom:0.50em;
   margin-top: 1.0em;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+div.content div.like p a {
+  color: white;
+  text-decoration: none;
 }
 
 div.body div.sidebar {
@@ -63,9 +76,25 @@ div.login_box input {
   width: 200px;
 }
 
+div.menu_container {
+  display: inline-block;
+  height: 40px;
+}
+
+div.menu_container ul {
+  list-style-type: none;
+}
+
+div.menu_container li {
+  float: left;
+  margin-right: 8px;
+  font-size: 14px;
+}
+
 div.footer {
   width: 100%;
   text-align: center;
+  color: #757575;
 }
 
 div.footer ul.footer_menu {
@@ -78,4 +107,9 @@ div.footer ul.footer_menu {
 
 div.footer ul.footer_menu li {
   float: left;
+}
+
+input.button {
+  height: 42px;
+  width: 80px;
 }

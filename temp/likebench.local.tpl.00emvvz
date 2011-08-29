@@ -1,3 +1,11 @@
+<?php if (($_logged_in=F3::get('logged_in'))): ?>
+  
+    <form action="/add" method="post">
+      <span>Create a Like:</span><br/>
+      <input type="text" name="text" class="text" /><input type="submit" value="Create" class="button" />
+    </form>
+  
+<?php endif; ?>
 <?php foreach ((($_likes=F3::get('likes'))?:array()) as $_like): ?>
   <div class="like">
     <p><a href="/likes/<?php echo $_like->_id; ?>"><?php echo $_like->text; ?></a></p>
@@ -6,5 +14,8 @@
       <a href="http://twitter.com/share" data-count="horizontal" data-url="<?php echo $_like->getUrl(); ?>" data-text="<?php echo $_like->text; ?>" class="twitter-share-button">Tweet</a>
     </span>
   </div>
+<?php endforeach; ?>
+<?php foreach ((($_pages=F3::get('pages'))?:array()) as $_page): ?>
+  <a href="?page=<?php echo $_page; ?>"><?php echo $_page; ?></a>
 <?php endforeach; ?>
 <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>

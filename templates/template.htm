@@ -5,8 +5,18 @@
     
     <link type="text/css" rel="stylesheet" href="/css/blueprint/screen.css" />
     <link type="text/css" rel="stylesheet" href="/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="/css/custom-theme/jquery-ui-1.8.16.custom.css" />
     
     <script type="text/javascript" src="/js/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui-1.8.16.custom.min.js"></script>
+    
+    <script type="text/javascript">
+      <!--
+      $(document).ready(function() {
+	$("input[type=submit]").button();
+      });
+      -->
+    </script>
   </head>
   <body>
     <header>
@@ -17,6 +27,13 @@
 	<a href="http://{{@host}}">
 	  <img src="/images/likebench-logo.png" alt="LikeBench" width="400" />
 	</a>
+	<div class="menu_container">
+	  <ul>
+	    <li><a href="/">Home</a></li>
+	    <li><a href="/">Newest Likes</a></li>
+	    <li><a href="/popular">Popular Likes</a></li>
+	  </ul>
+	</div>
       </div>
       <div class="right">
 	
@@ -43,6 +60,7 @@
 	  </F3:false>
 	</F3:check>
       </div>
+      <div class="clear"></div>
     </div>
     <div class="footer">
       <ul class="footer_menu">

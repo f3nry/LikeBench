@@ -1625,7 +1625,7 @@ class F3 extends Base {
 		$func=self::$vars['ONERROR'];
 		if ($func && !$fatal)
 			self::call($func,TRUE);
-		else
+		else {
 			echo '<html>'.
 				'<head>'.
 					'<title>'.$error['code'].' '.$error['title'].'</title>'.
@@ -1636,6 +1636,8 @@ class F3 extends Base {
 					'<p>'.$error['trace'].'</p>'.
 				'</body>'.
 			'</html>';
+			exit;
+		}
 	}
 
 	/**

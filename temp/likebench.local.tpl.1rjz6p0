@@ -1,10 +1,8 @@
 <div class="like">
     <p><a href="/likes/<?php echo F3::get('like->_id'); ?>"><?php echo F3::get('like->text'); ?></a></p>
     <span class="like_buttons">
-      <iframe src="http://www.facebook.com/plugins/like.php?href=<?php echo call_user_func_array(F3::get('like->getEncodedUrl'),array()); ?>"
-        scrolling="no" frameborder="0"
-        style="border:none; width:320px; height:25px;float:left;"></iframe>
-      <a href="http://twitter.com/share" data-count="horizontal" data-url="<?php echo call_user_func_array(F3::get('like->getUrl'),array()); ?>" data-text="<?php echo F3::get('like->text'); ?>" class="twitter-share-button">Tweet</a>
+      <fb:like href="" layout="button_count"></fb:like>
+      <a href="http://twitter.com/share" data-count="horizontal" data-url="" data-text="<?php echo F3::get('like->text'); ?>" class="twitter-share-button">Tweet</a>
     </span>
   </div>
 <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>

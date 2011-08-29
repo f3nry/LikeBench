@@ -27,7 +27,7 @@ class M2 extends Base {
 
 	//@{
 	//! M2 properties
-	private
+	protected
 		$db,$collection,$object,$cond,$seq,$ofs;
 	//@}
 

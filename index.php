@@ -17,12 +17,30 @@ User::fbauth();
 
 App::set('logged_in', (boolean) $_SESSION['_id']);
 
-App::route('GET /', function() { 
+App::route('GET /', function() {
+  get_likes(array("created_at" => -1));
+});
+
+App::route('GET /popular', function() {  
+  get_likes(array("likes" => -1));
+});
+
+function get_likes($sort) {
   $likes = new Like();
   
-  App::set('likes', $likes->find());
+  if(isset($_GET['page'])) {
+    $page = $_GET['page'];
+  } else {
+    $page = 1;
+  }
+  
+  $offset = ($page - 1) * 10;
+  
+  App::set('likes', $likes->find(null, $sort, 10, $offset));
+  App::set('pages_found', ceil($likes->count() / 10));
+  App::set('pages', $likes->getPages($page));
   App::set('content', Template::serve('templates/index.html'));
-});
+}
 
 App::route('GET /likes/@id', function() {
   $like = new Like(App::get('PARAMS["id"]'));
@@ -40,11 +58,15 @@ App::route('POST /add', function() {
   if(!empty($_POST)) {
     App::scrub($_POST);
     
+    if(empty($_POST['text'])) {
+      App::reroute('/');
+      exit;
+    }
+    
     $like = new Like();
     
     $like->text = $_POST['text'];
     $like->likes = 0;
-    $like->updateTrackingInfo();
     
     $like->save();
     
