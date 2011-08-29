@@ -7,6 +7,10 @@ require __DIR__ . '/../lib/base.php';
  *
  * @author paul
  */
-class App extends F3 { }
+class App extends F3 { 
+  public static function array_get($array, $key) {
+    return (isset($array[$key]) ? $array[$key] : false);
+  }
+}
 
 ?>

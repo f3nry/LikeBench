@@ -15,7 +15,7 @@ App::set('host', $_SERVER['HTTP_HOST']);
 User::init();
 User::fbauth();
 
-App::set('logged_in', (boolean) $_SESSION['_id']);
+App::set('logged_in', (boolean) App::array_get($_SESSION, '_id'));
 
 App::route('GET /', function() {
   get_likes(array("created_at" => -1));
