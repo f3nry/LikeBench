@@ -11,7 +11,7 @@ define('FB_APP_SECRET', 'bc366820186a31fbbf77490d1eaaeba4');
 if(isset($_SERVER['HTTP_REFERER'])) {
   define('SITE_URL', $_SERVER['HTTP_REFERER']);
 } else {
-  define('SITE_URL', 'http://likebench.net/');
+  define('SITE_URL', 'http://likebench.local/');
 }
 
 /**
@@ -20,7 +20,7 @@ if(isset($_SERVER['HTTP_REFERER'])) {
  *
  * @author paul
  */
-class User extends M2 {
+class User extends Axon {
 
   public function __construct() {
     parent::__construct('users');
@@ -34,7 +34,7 @@ class User extends M2 {
    */
   public static function byFacebookId($facebook_id) {
     $user = new User();
-    $user->load(array("facebook_id" => $facebook_id));
+    $user->load('facebook_id = "' . $facebook_id . "'");
 
     return $user;
   }
@@ -62,12 +62,14 @@ class User extends M2 {
 
     parse_str(trim($_COOKIE[$cookie_key], '\\"'), $args);
     ksort($args);
+
     $payload = '';
     foreach ($args as $key => $value) {
       if ($key != 'sig') {
-	$payload .= $key . '=' . $value;
+        $payload .= $key . '=' . $value;
       }
     }
+
     if (md5($payload . FB_APP_SECRET) != $args['sig']) {
       return null;
     }
@@ -153,7 +155,7 @@ class User extends M2 {
       $user_data = self::get_facebook_cookie();
 
       if (!$user_data && isset($_SESSION['_id'])) {
-	self::initiate_fb_auth();
+        self::initiate_fb_auth();
       }
     }
 
@@ -163,9 +165,9 @@ class User extends M2 {
 
     if (isset($_SESSION['access_token']) && !empty($_SESSION['access_token'])) {
       if (!isset($_SESSION['_id']) && empty($_SESSION['_id'])) {
-	$user = User::get();
+	      $user = User::get();
 
-	$_SESSION['_id'] = $user->_id;
+        $_SESSION['_id'] = $user->_id;
       }
 
       return true;

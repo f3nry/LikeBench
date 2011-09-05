@@ -5,12 +5,16 @@
  *
  * @author paul
  */
-class Like extends M2 {
+class Like extends Axon {
   protected $count = null;  
   
   public function count() {    
     if($this->count == null) {
-      $this->count = $this->db->{$this->collection}->count();
+      $count_result = $this->select("COUNT(id) as count", NULL, NULL, NULL, 0, 0, false);
+
+      if($count_result) {
+        $this->count = $count_result[0]['count'];
+      }
     }
     
     return $this->count;
@@ -32,7 +36,7 @@ class Like extends M2 {
     parent::__construct('likes');
     
     if(!empty($_id)) {
-      $this->load(array('_id' => new MongoId($_id)));
+      $this->load('id="' . $_id . '"');
     }
   }
   
@@ -44,7 +48,7 @@ class Like extends M2 {
   }
   
   public function getUrl() {
-    return 'http://' . $this->_id . '.' . App::get('host') . '/likes/' . $this->_id;
+    return 'http://' . $this->id . '.' . App::get('host') . '/likes/' . $this->id;
   }
   
   public function getEncodedUrl() {

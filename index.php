@@ -8,7 +8,19 @@ App::set('CACHE', FALSE);
 App::set('DEBUG', 1);
 App::set('AUTOLOAD', 'app/');
 
-App::set('DB', new MongoDb(new Mongo(), 'likebench'));
+if(strpos($_SERVER['HTTP_HOST'], "local") === false) {
+  App::set('DB', new DB(
+    'mysql:host=mysql.mphwebsystems.com;port=3306;dbname=likebench',
+    'root',
+    ''
+  ));
+} else {
+  App::set('DB', new DB(
+    'mysql:host=localhost;port=3306;dbname=likebench',
+    'root',
+    ''
+  ));
+}
 
 App::set('host', $_SERVER['HTTP_HOST']);
 
@@ -18,11 +30,11 @@ User::fbauth();
 App::set('logged_in', (boolean) App::array_get($_SESSION, '_id'));
 
 App::route('GET /', function() {
-  get_likes(array("created_at" => -1));
+  get_likes("created_at DESC");
 });
 
 App::route('GET /popular', function() {  
-  get_likes(array("likes" => -1));
+  get_likes("likes DESC");
 });
 
 function get_likes($sort) {
@@ -87,8 +99,8 @@ App::route('POST /events/like', function() {
       
       $like = new Like($id);
       $like->increment();
-      
-      var_dump($like); die;
+
+      $like->save();
     }
   }
 });

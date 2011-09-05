@@ -1,5 +1,5 @@
 <div class="like">
-    <p><a href="/likes/<?php echo F3::get('like->_id'); ?>"><?php echo F3::get('like->text'); ?></a></p>
+    <p><a href="/likes/<?php echo F3::get('like->id'); ?>"><?php echo F3::get('like->text'); ?></a></p>
     <span class="like_buttons">
       <fb:like href="" layout="button_count"></fb:like>
       <a href="http://twitter.com/share" data-count="horizontal" data-url="" data-text="<?php echo F3::get('like->text'); ?>" class="twitter-share-button">Tweet</a>
