@@ -11,7 +11,7 @@ define('FB_APP_SECRET', 'bc366820186a31fbbf77490d1eaaeba4');
 if(isset($_SERVER['HTTP_REFERER'])) {
   define('SITE_URL', $_SERVER['HTTP_REFERER']);
 } else {
-  define('SITE_URL', 'http://likebench.local/');
+  define('SITE_URL', 'http://likebench.net/');
 }
 
 /**
