@@ -1,17 +1,12 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 define('FB_APP_ID', '208264955898181');
 define('FB_APP_SECRET', 'bc366820186a31fbbf77490d1eaaeba4');
 
 if(isset($_SERVER['HTTP_REFERER'])) {
   define('SITE_URL', $_SERVER['HTTP_REFERER']);
 } else {
-  define('SITE_URL', 'http://likebench.local/');
+  define('SITE_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/');
 }
 
 /**
@@ -34,7 +29,7 @@ class User extends Axon {
    */
   public static function byFacebookId($facebook_id) {
     $user = new User();
-    $user->load('facebook_id = "' . $facebook_id . "'");
+    $user->load('facebook_id = ' . $facebook_id);
 
     return $user;
   }
