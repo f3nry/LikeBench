@@ -1,28 +1,7 @@
 <?php
 
 require __DIR__ . '/app/app.php';
-
-date_default_timezone_set("America/Chicago");
-
-App::set('CACHE', FALSE);
-App::set('DEBUG', 1);
-App::set('AUTOLOAD', 'app/');
-
-if(strpos($_SERVER['HTTP_HOST'], "local") === false) {
-  App::set('DB', new DB(
-    'mysql:host=mysql.mphwebsystems.com;port=3306;dbname=likebench',
-    'root',
-    ''
-  ));
-} else {
-  App::set('DB', new DB(
-    'mysql:host=localhost;port=3306;dbname=likebench',
-    'root',
-    ''
-  ));
-}
-
-App::set('host', $_SERVER['HTTP_HOST']);
+require __DIR__ . '/app/config.php';
 
 User::init();
 User::fbauth();
