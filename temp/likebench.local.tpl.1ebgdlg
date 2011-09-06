@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LikeBench</title>
+    <title>
+    	<?php if (F3::get('like->text')): ?>
+    		
+    			<?php echo F3::get('like->text'); ?>
+    		
+    		<?php else: ?>
+    			LikeBench
+    		
+    	<?php endif; ?>
+    </title>
     
     <link type="text/css" rel="stylesheet" href="/css/blueprint/screen.css" />
     <link type="text/css" rel="stylesheet" href="/css/style.css" />
@@ -12,11 +21,13 @@
 
     <meta property="og:title" content="<?php echo F3::get('like->text'); ?>" />
     <meta property="og:url" content="http://<?php echo F3::get('like->id'); ?>.likebench.net/likes/<?php echo F3::get('like->id'); ?>" />
-    
+    <meta property="og:site_name" content="LikeBench" />
+    <meta property="og:type" content="article" />
+
     <script type="text/javascript">
       <!--
       $(document).ready(function() {
-	$("input[type=submit]").button();
+				$("input[type=submit]").button();
       });
       -->
     </script>

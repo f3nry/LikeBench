@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LikeBench</title>
+    <title>
+    	<F3:check if="{{@like->text}}">
+    		<F3:true>
+    			{{@like->text}}
+    		</F3:true>
+    		<F3:false>
+    			LikeBench
+    		</F3:false>
+    	</F3:check>
+    </title>
     
     <link type="text/css" rel="stylesheet" href="/css/blueprint/screen.css" />
     <link type="text/css" rel="stylesheet" href="/css/style.css" />
