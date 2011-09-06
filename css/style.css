@@ -19,12 +19,14 @@ header div {
 }
 
 header div.left {
-  width: 30%;
+  width: 20%;
 }
 
 header div.wider {
-  width: 40%;
+  width: 50%;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 header div.right {
