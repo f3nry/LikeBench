@@ -162,7 +162,7 @@ class User extends Axon {
       if (!isset($_SESSION['_id']) && empty($_SESSION['_id'])) {
 	      $user = User::get();
 
-        $_SESSION['_id'] = $user->_id;
+        $_SESSION['_id'] = $user->id;
       }
 
       return true;
