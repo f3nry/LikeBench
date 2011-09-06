@@ -1,8 +1,8 @@
 <?php if (($_logged_in=F3::get('logged_in'))): ?>
   
-    <form action="/add" method="post">
-      <span>Create a Like:</span><br/>
-      <input type="text" name="text" class="text" /><input type="submit" value="Create" class="button" />
+    <form action="/add" method="post" class="new_like">
+      <span>Create a Like:</span>
+      <input type="text" name="text" class="text" />&nbsp;&nbsp;<input type="submit" value="Create" class="button" />
     </form>
   
 <?php endif; ?>
@@ -15,7 +15,9 @@
     </span>
   </div>
 <?php endforeach; ?>
+<div class="pages">
 <?php foreach ((($_pages=F3::get('pages'))?:array()) as $_page): ?>
   <a href="?page=<?php echo $_page; ?>"><?php echo $_page; ?></a>
 <?php endforeach; ?>
+</div>
 <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>

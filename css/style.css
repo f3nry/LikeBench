@@ -1,6 +1,6 @@
 body {
   font-size: 0.9em;
-  background-color: #808080;
+  background-color: #A0A0A0;
 }
 
 div.content input.text {
@@ -38,8 +38,8 @@ div.body {
 
 div.body div.content {
   float: left;
-  max-width: 60%;
-  padding: 40px 0px 0px 60px;
+  max-width: 70%;
+  padding: 20px 0px 0px 60px;
 }
 
 div.content div.like p {
@@ -49,16 +49,21 @@ div.content div.like p {
   font-weight: bold;
 }
 
+form.new_like {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 div.content div.like p a {
   color: white;
   text-decoration: none;
 }
 
 div.body div.sidebar {
-  width: 30%;
+  width: 20%;
   float: right;
   border-left: #dddddd 1px solid;
-  padding-top: 20px;
+  margin-top: 20px;
   color: #5f5f5f;
 }
 
@@ -112,4 +117,19 @@ div.footer ul.footer_menu li {
 input.button {
   height: 42px;
   width: 80px;
+}
+
+form.new_like span {
+  color: white;
+  font-size:1.4em;
+  font-weight: bold;
+}
+
+div.pages {
+  margin-top: 20px;
+  font-size: 1.4em;
+}
+
+div.pages a {
+  
 }

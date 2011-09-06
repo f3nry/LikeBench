@@ -1,8 +1,8 @@
 <F3:check if="{{@logged_in}}">
   <F3:true>
-    <form action="/add" method="post">
-      <span>Create a Like:</span><br/>
-      <input type="text" name="text" class="text" /><input type="submit" value="Create" class="button" />
+    <form action="/add" method="post" class="new_like">
+      <span>Create a Like:</span>
+      <input type="text" name="text" class="text" />&nbsp;&nbsp;<input type="submit" value="Create" class="button" />
     </form>
   </F3:true>
 </F3:check>
@@ -15,7 +15,9 @@
     </span>
   </div>
 </F3:repeat>
+<div class="pages">
 <F3:repeat group="{{@pages}}" value="{{@page}}">
   <a href="?page={{@page}}">{{@page}}</a>
 </F3:repeat>
+</div>
 <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
