@@ -9,13 +9,13 @@ div.content input.text {
 }
 
 header {
-  height: 180px;
+  height: 200px;
   border-bottom: #dddddd 1px solid;
   background-color: white;
 }
 
 header div {
-  height: 180px;
+  height: 200px;
 }
 
 header div.left {
